@@ -5,14 +5,19 @@ const ChatPage = () => {
     const [chats , setChats] = useState([]);
     console.log(chats , "chats")
     const fetchChats = async () => {
-        const { data} = await axios.get("http://localhost:4000/api/chats")
-        setChats(data.chats)
+        const  data = await axios.get("http://localhost:4000/api/chats")
+        console.log(data , "data")
+        // setChats(data.chats)
     }
 useEffect(() => {
     fetchChats()
 },[])
+
+let {token} = JSON.parse(localStorage.getItem("userDetails"));
+console.log(token , "user")
+
   return (
-    <>
+    <div>
         {
             chats.map(res => {
                 return (
@@ -20,7 +25,7 @@ useEffect(() => {
                 )
             })
         }
-    </>
+    </div>
   )
 }
 
