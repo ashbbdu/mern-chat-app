@@ -60,11 +60,13 @@ const Signup = () => {
       method: "POST",
       body: JSON.stringify(state),
     });
+    // console.log(data ,  "adfaf")
     const res = await data.json();
     // console.log(res, "res");
     if(res.success) {
-        toast.success(res.message)
         
+        toast.success(res.message)
+
     } else {
         toast.error(res.message) 
     }

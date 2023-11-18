@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import ChatPage from "./pages/ChatPage";
 import { Toaster } from "react-hot-toast";
+import PrivateRoute from "./privateRoutes";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/chat" element={<ChatPage />} />
+        <Route path="/chat" element={<PrivateRoute><ChatPage /></PrivateRoute>} />
       </Routes>
     </div>
   );

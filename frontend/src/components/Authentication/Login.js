@@ -42,9 +42,11 @@ const Login = () => {
         });
         const res = await data.json();
         if(res.success) {
+            console.log(res , "Res")
             toast.success(res.message)
             navigate("/chat")
             localStorage.setItem("userDetails" , JSON.stringify(res))
+            localStorage.setItem("token" , JSON.stringify(res.token))
         } else {
             toast.error(res.message) 
         }
